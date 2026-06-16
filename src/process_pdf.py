@@ -1,10 +1,13 @@
-from pypdf import PdfReader
-from langchain_text_splitters import RecursiveCharacterTextSplitter
-from sentence_transformers import SentenceTransformer
+import os
 import faiss
-import numpy as np
 import pickle
+import numpy as np
 
+from pypdf import PdfReader
+from sentence_transformers import SentenceTransformer
+from langchain_text_splitters import (
+    RecursiveCharacterTextSplitter
+)
 
 def process_pdf(pdf_path):
 
@@ -60,7 +63,7 @@ def process_pdf(pdf_path):
         "vectorstore",
         exist_ok=True
     )
-    
+
     faiss.write_index(
         index,
         "vectorstore/index.faiss"
