@@ -56,6 +56,11 @@ def process_pdf(pdf_path):
 
     print("Saving FAISS Index...")
 
+    os.makedirs(
+        "vectorstore",
+        exist_ok=True
+    )
+    
     faiss.write_index(
         index,
         "vectorstore/index.faiss"
